@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Energy Australia Coding Test API"
+  },
+  "basePath": "/codingtest/",
+  "paths": {
+    "/api/v1/festivals": {
+      "get": {
+        "tags": [
+          "festivals"
+        ],
+        "operationId": "APIFestivalsGet",
+        "consumes": [],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MusicFestival"
+              }
+            }
+          },
+          "429": {
+            "description": "Throttled",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "MusicFestival": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "bands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Band"
+          }
+        }
+      }
+    },
+    "Band": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "recordLabel": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {}
+}
