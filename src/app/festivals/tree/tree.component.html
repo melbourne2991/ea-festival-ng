@@ -1,8 +1,6 @@
-<div [ngStyle]="{ 'margin-bottom': spacing ? '2rem' : '0px' }">
-  <div *ngIf="treeNode.label">{{ treeNode.label }}</div>
-  <ul *ngIf="treeNode.children">
-    <li *ngFor="let child of treeNode.children">
-      <app-tree [treeNode]="child"></app-tree>
-    </li>
-  </ul>
-</div>
+<p *ngIf="label" data-testid="app-tree-label">{{ label }}</p>
+<ul *ngIf="children?.length" data-testid="app-tree-children">
+  <li *ngFor="let child of children" data-testid="app-tree-child">
+    <app-tree [label]="child.label" [children]="child.children"></app-tree>
+  </li>
+</ul>

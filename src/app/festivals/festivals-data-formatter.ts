@@ -73,21 +73,13 @@ export class FestivalsDataFormatter {
     return this.formatRecordLabels(recordLabelsToFormat);
   };
 
-  private static indent(count: number) {
-    return new Array(count).fill(" ").join("");
-  }
-
   private formatFestivals = (festivals: Festival[]) => {
     return festivals
       .map((festival) => {
-        // const name = this.getName("festival", festival, "Festival");
-        // return `${FestivalsDataFormatter.indent(6)}${name}\n`;
-
         return {
           label: this.getName("festival", festival, "Festival"),
         }
       })
-      // .join("");
   };
 
   private formatBands = (bands: Band[]) => {
@@ -98,10 +90,7 @@ export class FestivalsDataFormatter {
           label: this.getName("band", band, "Band"),
           children: this.formatFestivals(band.festivals)
         }
-        // const name = this.getName("band", band, "Band");
-        // return `${FestivalsDataFormatter.indent(3)}${name}\n${this.formatFestivals(band.festivals)}`;
       })
-      // .join("");
   };
 
   private formatRecordLabels = (recordLabels: (RecordLabel | NoRecordLabel)[]): TreeNode[] => {
@@ -111,10 +100,6 @@ export class FestivalsDataFormatter {
           label: this.getName("recordLabel", recordLabel, "Record Label"),
           children: this.formatBands(recordLabel.bands)
         }
-
-        // const name = this.getName("recordLabel", recordLabel, "Record Label");
-        // return `${name}\n${this.formatBands(recordLabel.bands)}\n`;
       })
-      // .join("");
   };
 }

@@ -1,5 +1,17 @@
+:host {
+  display: block;
+}
+
+:host.spacing {
+  margin-bottom: 2rem;
+}
+
 ul {
   list-style: none;
   margin: 0;
   padding-left: 2rem;
+}
+
+p {
+  margin: 0;
 }

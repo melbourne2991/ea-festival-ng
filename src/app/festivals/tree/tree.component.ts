@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { TreeNode } from '../festivals-data-formatter';
 
 @Component({
@@ -9,8 +9,11 @@ import { TreeNode } from '../festivals-data-formatter';
 export class TreeComponent {
 
   @Input()
-  treeNode!: TreeNode;
+  label?: string = "";
 
   @Input()
+  children?: TreeNode[] = []
+
+  @HostBinding("class.spacing") @Input()
   spacing: boolean = false;
 }

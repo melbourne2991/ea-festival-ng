@@ -1,9 +1,13 @@
 <div *ngIf="data$ | async as treeNodes; else loading">
-  <p *ngIf="!treeNodes.length">No data to show.</p>
+  <p *ngIf="!treeNodes.length" data-testid="no-data-message">No data to show.</p>
 
-  <app-tree *ngFor="let treeNode of treeNodes" [spacing]="true" [treeNode]="treeNode"></app-tree>
+  <app-tree
+    *ngFor="let treeNode of treeNodes"
+    data-testid="record-label"
+    [spacing]="true"
+    [label]="treeNode.label"
+    [children]="treeNode.children"
+  ></app-tree>
 </div>
 
-<ng-template #loading>
-  Loading...
-</ng-template>
+<ng-template #loading> Loading... </ng-template>
